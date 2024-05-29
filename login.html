@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BLOG TRILHAS</title>
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v4.0.8/css/line.css"
+    />
+    <link rel="stylesheet" href="./styleBlog.css" />
+  </head>
+  <body>
+    <nav>
+      <div class="container">
+        <h2 class="log">TrackingSC</h2>
+        <div class="search-bar">
+          <i class="uil uil-search"></i>
+          <input type="search" placeholder="Pesquisar" />
+        </div>
+        <div class="create">
+          <label class="btn btn-primary" for="#create-post">Criar</label>
+          <div class="profile-photo">
+            <img src="./assets/profile-2.jpg" />
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <div class="container">
+        <div class="left">
+          <a class="profile">
+            <div class="profile-photo">
+              <img src="./assets/profile-19.jpg" />
+            </div>
+            <div class="handle">
+              <h4>Maisa Almeida</h4>
+              <p class="text-muted">@MaisaAlmeida</p>
+            </div>
+          </a>
+
+          <div class="sidebar">
+            <a class="menu-item active">
+              <span><i class="uil uil-home"></i></span>
+              <h3>Home</h3>
+            </a>
+            <a class="menu-item">
+              <span><i class="uil uil-compass"></i></span>
+              <h3>Explorar</h3>
+            </a>
+            <a class="menu-item" id="notifications">
+              <span
+                ><i class="uil uil-bell"
+                  ><small class="notification-count">9+</small></i
+                ></span
+              >
+              <h3>Notificação</h3>
+              <div class="notifications-popup">
+                <div>
+                  <div class="profile-photo">
+                    <img src="./assets/profile-9.jpg" />
+                  </div>
+                  <div class="notification-body">
+                    <b>Igor Carminati</b> aceitou seu pedido de amizade
+                    <small class="text-muted">2 DIAS ATRÁS</small>
+                  </div>
+                </div>
+                <div>
+                  <div class="profile-photo">
+                    <img src="./assets/profile-9.jpg" />
+                  </div>
+                  <div class="notification-body">
+                    <b>Anderson Voss</b> comentou no seu post
+                    <small class="text-muted">1 HORA ATRÁS</small>
+                  </div>
+                </div>
+              </div>
+            </a>
+            <a class="menu-item">
+              <span
+                ><i class="uil uil-envelope-alt"
+                  ><small class="notification-count">6</small></i
+                ></span
+              >
+              <h3>Mensagens</h3>
+            </a>
+            <a class="menu-item">
+              <span><i class="uil uil-palette"></i></span>
+              <h3>Tema</h3>
+            </a>
+            <a class="menu-item">
+              <span><i class="uil uil-setting"></i></span>
+              <h3>Settings</h3>
+            </a>
+          </div>
+          <label for="create-post" class="btn btn-primary"
+            >Criar Publicação</label
+          >
+        </div>
+
+        <div class="middle">
+          <!----Stories---->
+          <div class="stories">
+            <div class="story">
+              <div class="profile-photo">
+                <img src="./assets/profile-9.jpg" />
+              </div>
+              <p class="name">Seu Story</p>
+            </div>
+            <div class="story">
+              <div class="profile-photo">
+                <img src="./assets/profile-9.jpg" />
+              </div>
+              <p class="name">Igor Carminati</p>
+            </div>
+            <div class="story">
+              <div class="profile-photo">
+                <img src="./assets/profile-9.jpg" />
+              </div>
+              <p class="name">Maria do Bairro</p>
+            </div>
+            <div class="story">
+              <div class="profile-photo">
+                <img src="./assets/profile-9.jpg" />
+              </div>
+              <p class="name">Matteus Beuting</p>
+            </div>
+            <div class="story">
+              <div class="profile-photo">
+                <img src="./assets/profile-9.jpg" />
+              </div>
+              <p class="name">Lucca Olinger</p>
+            </div>
+          </div>
+
+          <form class="create-post">
+            <div class="profile-photo">
+              <img src="./assets/servico1.svg" />
+            </div>
+            <input
+              type="text"
+              placeholder="Publique sua trilha aqui"
+              id="create-post"
+            />
+            <input type="submit" value="Solicitar" class="btn btn-primary" />
+          </form>
+        </div>
+
+        <div class="right"></div>
+      </div>
+    </main>
+  </body>
+</html>
