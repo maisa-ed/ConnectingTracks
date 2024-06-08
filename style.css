@@ -88,10 +88,11 @@ i {
 }
 
 .bg-home::before {
-  content: "";
+  content: '';
   display: block;
   position: absolute;
-  background-image: linear-gradient(to bottom, rgba(6, 18, 30, 0.75), #06121e), url(../assets/delivery.jpg);
+  background-image: linear-gradient(to bottom, rgba(6, 18, 30, 0.75), #06121e),
+    url(../assets/delivery.jpg);
   left: 0;
   top: 0;
   width: 100%;
@@ -324,15 +325,22 @@ i {
 }
 
 body {
-  font-family: "Nunito Sans", sans-serif;
+  font-family: 'Nunito Sans', sans-serif;
   width: 100%;
   height: 100vh;
   position: relative;
   background-color: #06121e;
+  background-image: url('assets/fundo.jpeg'); /* Caminho da sua imagem de fundo */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  margin: 0;
+  padding: 0;
 }
 
 button {
-  font-family: "Nunito Sans", sans-serif;
+  font-family: 'Nunito Sans', sans-serif;
   cursor: pointer;
 }
 
@@ -347,5 +355,4 @@ img {
 a {
   cursor: pointer;
   text-decoration: none;
-}/*# sourceMappingURL=style.css.map */
-
+} /*# sourceMappingURL=style.css.map */
