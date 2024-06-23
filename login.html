@@ -100,40 +100,49 @@
         </div>
 
         <div class="middle">
-          <!----Stories---->
-          <div class="stories">
-            <div class="story">
-              <div class="profile-photo">
-                <img src="./assets/profile-9.jpg" />
+         
+
+          <div id="modal" class="modal">
+            <div class="modal-content">
+              <span class="close">&times;</span>
+              <h2>Criar Publicação</h2>
+              <div class="container">
+                
+                <form id="eventForm" action="/evento" method="post">
+                  <div class="form-group">
+                    <label for="descricao">Descrição:</label>
+                    <input type="text" id="descricao" name="descricao" required />
+                  </div>
+                  <div class="form-group">
+                    <label for="data">Data:</label>
+                    <input type="date" id="data" name="data" required />
+                  </div>
+                  <div class="form-group">
+                    <label for="hora">Hora:</label>
+                    <input type="time" id="hora" name="hora" required />
+                  </div>
+                  <div class="form-group">
+                    <label for="local">Local:</label>
+                    <input type="text" id="local" name="local" required />
+                  </div>
+                  <div class="form-group">
+                    <label for="tempo">Tempo de Duração:</label>
+                    <input type="text" id="tempo" name="tempo" required />
+                  </div>
+                  <div class="form-group">
+                    <label for="dificuldade">Dificuldade:</label>
+                    <select id="dificuldade" name="dificuldade" required>
+                      <option value="Fácil">Fácil</option>
+                      <option value="Média">Moderado</option>
+                      <option value="Difícil">Difícil</option>
+                    </select>
+                  </div>
+                  <button type="submit" class="submit-btn">Enviar</button>
+                </form>
               </div>
-              <p class="name">Seu Story</p>
-            </div>
-            <div class="story">
-              <div class="profile-photo">
-                <img src="./assets/profile-9.jpg" />
-              </div>
-              <p class="name">Igor Carminati</p>
-            </div>
-            <div class="story">
-              <div class="profile-photo">
-                <img src="./assets/profile-9.jpg" />
-              </div>
-              <p class="name">Maria do Bairro</p>
-            </div>
-            <div class="story">
-              <div class="profile-photo">
-                <img src="./assets/profile-9.jpg" />
-              </div>
-              <p class="name">Matteus Beuting</p>
-            </div>
-            <div class="story">
-              <div class="profile-photo">
-                <img src="./assets/profile-9.jpg" />
-              </div>
-              <p class="name">Lucca Olinger</p>
             </div>
           </div>
-
+          
           <form class="create-post">
             <div class="profile-photo">
               <img src="./assets/servico1.svg" />
@@ -145,6 +154,55 @@
             />
             <input type="submit" value="Solicitar" class="btn btn-primary" />
           </form>
+          <script src="teste.js"></script>
+          <div class="feeds">
+            <div class="feed">
+              <div class="head">
+                <div class="user">
+                  <div class="profile-photo">
+                    <img src="assets/profile-2.jpg" />
+                  </div>
+                  <div class="ingo">
+                    <h3>Maisa Eduarda</h3>
+                    <small>Brusque, 15 MINUTOS ATRÁS</small>
+                  </div>
+                  
+                </div>
+                <span class="edit">
+                  <i class="uil uil-ellipsis-h"></i>
+                </span>
+              </div>
+              <div>
+                <div class="photo">
+                  <img src="assets/profile-2.jpg" />
+                </div>
+                  <div class="action-button"></div>
+                    <div class="interaction-buttons">
+                        <span><i class="uil uil-heart"></i></span>
+                        <span><i class="uil uil-comment-dots"></i></span>
+                        <span><i class="uil uil-share-alt"></i></span>
+                    </div>
+                    <div class="bookmark">
+                        <span><i class="uil uil-bookmark-full"></i></span>
+                    </div>
+                
+                <div class="liked-by">
+                  <span><img src="assets/servico3.svg"></span>
+                  <span><img src="assets/servico3.svg"></span>
+                  <span><img src="assets/servico3.svg"></span>
+                  <p>Curtido por <b>Igor Carminati</b> e <b>outras pessoas</b></p>
+                </div>
+              </div>
+              
+
+              <div class="caption">
+                  <p><b>Igor Carminati</b> Linda maravilhosa cheirosa <span class="hash-tag">#teste</span></p>
+              </div>
+              <div class="comments text-muted">Ver todos os 37 comentários</div>
+            </div>
+          </div>
+        </div>
+      </div>
         </div>
 
         <div class="right"></div>
