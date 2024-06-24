@@ -8,6 +8,7 @@ const path = require('path');
 
 // Substitua pelos seus valores
 
+
 const app = express();
 const port = 3000;
 
@@ -89,7 +90,7 @@ app.get('/auth/google', passport.authenticate('google', { scope: ['profile', 'em
 app.get('/auth/google/callback', 
   passport.authenticate('google', { failureRedirect: '/login' }),
   (req, res) => {
-    res.redirect('/index.html');
+    res.redirect('/login.html');
   }
 );
 
@@ -103,7 +104,7 @@ app.get('/logout', (req, res) => {
 app.post('/evento', (req, res) => {
   const { nome, descricao, data, hora, local, tempo, dificuldade, linkWhats } = req.body;
 
-  const query = `INSERT INTO eventos (nome, descricao, data, hora, local, tempo, dificuldade, linkWhats) VALUES (?, ?, ?, ?, ?, ?, ?, ?)`;
+  const query = `INSERT INTO eventos (nome, descricao, data, hora, local, tempo, dificuldade, linkWhats) VALUES (?, ?, ? , ?, ?, ?, ?, ?)`;
   const params = [nome, descricao, data, hora, local, tempo, dificuldade, linkWhats];
 
   db.run(query, params, function(err) {
@@ -111,7 +112,7 @@ app.post('/evento', (req, res) => {
       console.error('Erro ao inserir dados no banco de dados:', err.message);
       res.status(500).send('Erro ao salvar o evento');
     } else {
-      res.redirect(`/index.html`);
+      res.redirect(`/login.html`);
     }
   });
 });
@@ -202,7 +203,7 @@ app.get('/eventos/recentes', (req, res) => {
     SELECT * FROM eventos 
     WHERE aprovado = 1 
     ORDER BY data ASC, hora ASC 
-    LIMIT 4
+    LIMIT 3
   `;
 
   db.all(query, [], (err, rows) => {
