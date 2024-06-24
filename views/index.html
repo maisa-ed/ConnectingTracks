@@ -120,10 +120,10 @@
 
         // Função para formatar a data no padrão brasileiro (dd/mm/aaaa)
         function formatarDataBrasileiro(data) {
-            const dataObj = new Date(data);
-            const dia = dataObj.getDate().toString().padStart(2, '0');
-            const mes = (dataObj.getMonth() + 1).toString().padStart(2, '0'); // Mês começa do zero
-            const ano = dataObj.getFullYear();
+            const dataObj = new Date(data + 'T00:00:00'); // Adiciona 'T00:00:00' para evitar problemas de fuso horário
+            const dia = dataObj.getUTCDate().toString().padStart(2, '0'); // Obtém a data em UTC
+            const mes = (dataObj.getUTCMonth() + 1).toString().padStart(2, '0'); // Mês começa do zero
+            const ano = dataObj.getUTCFullYear();
             return `${dia}/${mes}/${ano}`;
         }
     </script>
