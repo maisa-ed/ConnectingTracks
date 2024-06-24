@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos</title>
+    <link rel="stylesheet" href="/stylesfor.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            fetch('/eventos')
+                .then(response => response.json())
+                .then(data => {
+                    const eventosContainer = document.getElementById('eventos-container');
+                    data.forEach(evento => {
+                        const eventoDiv = document.createElement('div');
+                        eventoDiv.className = 'evento';
+
+                        // Formatar a data no padrão brasileiro (dd/mm/aaaa)
+                        const dataFormatada = formatarDataBrasileiro(evento.data);
+
+                        eventoDiv.innerHTML = `
+                            <p><strong>Nome:</strong> ${evento.nome}</p>
+                            <p><strong>Descrição:</strong> ${evento.descricao}</p>
+                            <p><strong>Data:</strong> ${dataFormatada}</p>
+                            <p><strong>Hora:</strong> ${evento.hora}</p>
+                            <p><strong>Local:</strong> ${evento.local}</p>
+                            <p><strong>Tempo:</strong> ${evento.tempo}</p>
+                            <p><strong>Dificuldade:</strong> ${evento.dificuldade}</p>
+                            <p><strong>Link WhatsApp:</strong> <a href="${evento.linkWhats}" target="_blank">${evento.linkWhats}</a></p>
+                            <p><strong>Status:</strong> ${evento.aprovado === 1 ? 'Aprovado' : evento.aprovado === -1 ? 'Reprovado' : 'Pendente'}</p>
+                            <button onclick="aprovarEvento(${evento.id})">Aprovar</button>
+                            <button onclick="reprovarEvento(${evento.id})">Reprovar</button>
+                        `;
+
+                        eventosContainer.appendChild(eventoDiv);
+                    });
+                })
+                .catch(error => console.error('Erro ao buscar eventos:', error));
+        });
+
+        function aprovarEvento(eventoId) {
+            fetch(`/evento/${eventoId}/aprovar`, { method: 'POST' })
+                .then(response => {
+                    if (response.ok) {
+                        location.reload();
+                    } else {
+                        alert('Erro ao aprovar o evento');
+                    }
+                });
+        }
+
+        function reprovarEvento(eventoId) {
+            fetch(`/evento/${eventoId}/reprovar`, { method: 'POST' })
+                .then(response => {
+                    if (response.ok) {
+                        location.reload();
+                    } else {
+                        alert('Erro ao reprovar o evento');
+                    }
+                });
+        }
+
+        function formatarDataBrasileiro(data) {
+            const dataObj = new Date(data);
+            const dia = dataObj.getDate().toString().padStart(2, '0');
+            const mes = (dataObj.getMonth() + 1).toString().padStart(2, '0'); // Mês começa do zero
+            const ano = dataObj.getFullYear();
+            return `${dia}/${mes}/${ano}`;
+        }
+    </script>
+</head>
+<body>
+    <h1>Trilhas</h1>
+    <div id="eventos-container"></div>
+</body>
+</html>
